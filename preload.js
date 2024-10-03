@@ -32,11 +32,12 @@ window.addEventListener('DOMContentLoaded', () => {
       const newSection = document.getElementsByClassName('left-content style-scope ytmusic-nav-bar')[0];
       if (newSection) {
         newSection.appendChild(accountSettings);
+
       } else {
-        console.error('Error al mover search box');
+        console.error('Error al account settings section');
       }
     } else {
-      console.error('Error al encontrar search box');
+      console.error('Error al encontrar account settings section');
     }
 
     //play list title
@@ -46,23 +47,47 @@ window.addEventListener('DOMContentLoaded', () => {
       if (newSection) {
         newSection.appendChild(playlistTitle);
       } else {
-        console.error('Error al mover search box');
+        console.error('Error al mover play list title');
       }
     } else {
-      console.error('Error al encontrar search box');
+      console.error('Error al encontrar play list title');
     }
 
-    //play list title
-    const addToPlayList = document.getElementsByClassName('av style-scope ytmusic-player-page')[0];
-    if (addToPlayList) {
+    //toggle-video-audio
+    const toggleVideoAudio = document.getElementsByClassName('av style-scope ytmusic-player-page')[0];
+    if (toggleVideoAudio) {
       const newSection = document.getElementsByClassName('right-controls-buttons style-scope ytmusic-player-bar')[0];
       if (newSection) {
-        newSection.appendChild(addToPlayList);
+        newSection.appendChild(toggleVideoAudio);
+        console.log("Botón con imagen añadido con éxito.");
       } else {
-        console.error('Error al mover search box');
+        console.error('Error al encontrar el contenedor de "right-controls-buttons".');
       }
     } else {
-      console.error('Error al encontrar search box');
+      console.error('Error al encontrar toggle-video-audio.');
     }
+
+    const songButton = document.querySelector('.song-button.style-scope.ytmusic-av-toggle');
+    const videoButton = document.querySelector('.video-button.style-scope.ytmusic-av-toggle');
+
+    if (songButton) {
+      const songImg = document.createElement('img');
+      songImg.src = `file://${songIconPath}`; 
+      songImg.alt = 'Song Icon';
+      songButton.prepend(songImg); 
+    } else {
+      console.error('No se pudo encontrar el boton de musica');
+    }
+
+    if (videoButton) {
+      const videoImg = document.createElement('img');
+      videoImg.src = `file://${videoIconPath}`;
+      videoImg.alt = 'Video Icon';
+      videoButton.prepend(videoImg);
+    } else {
+      console.error('No se pudo encontrar el boton de video');
+    }
+
+
   }, 1000);
 });

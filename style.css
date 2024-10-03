@@ -52,12 +52,14 @@ tp-yt-iron-icon.tp-yt-paper-icon-button {
 }
 
 .left-controls.ytmusic-player-bar {
-    color: red !important;
-    box-shadow: none !important;
+    color: var(--items-color-4);
 }
 
 /* video-audio toggle */
-.av.ytmusic-player-page {}
+.song-button.ytmusic-av-toggle,
+.video-button.ytmusic-av-toggle {
+    font-size: 0px !important;
+}
 
 /* like-dislike section */
 ytmusic-like-button-renderer {
@@ -305,4 +307,9 @@ ytmusic-player-page:not([video-mode]):not([player-fullscreened]) #player.ytmusic
 
 .song-media-controls.ytmusic-player {
     cursor: pointer;
+}
+
+.av.ytmusic-player-page>img {
+    width: 1rem;
+    height: 1rem;
 }
